@@ -47,8 +47,32 @@ describe("Suite 1", () => {
     // })
 
     
-    it ('8- test', () => {
+    // it ('8- test', () => {
+    //     cy.visit("https://google.com")
+    //     cy.get("input[name=q]").type("Cypress ".repeat(2))
+    // })
+
+
+
+    // for run sypress : npx cypress open
+    //  ============== example for use .then in cypress
+    // cypress is sync 
+    it ('9- test', () => {
         cy.visit("https://google.com")
-        cy.get("input[name=q]").type("Cypress ".repeat(2))
+        cy.wait(3000).then( () => {
+            console.log("finished")
+        })
     })
+
+    // this test for API
+    it.only ('10- test', () => {
+        fetch("api")
+        .then( (res) => res.json())
+        .then( (data) => {
+            console.log(data)
+        })
+    })
+
+
+
 })
